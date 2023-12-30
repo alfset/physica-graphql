@@ -1,0 +1,17 @@
+{
+  "name": "physica-graphql",
+  "version": "1.0.0",
+  "description": "graphql for physica finnacne",
+  "main": "index.js",
+  "repository": "https://github.com/alfset/physica-graphql",
+  "author": "Alfino Setiawan <alfset5@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-graphql": "^0.12.0",
+    "fs": "^0.0.1-security",
+    "graphql": "^16.8.1",
+    "json-parse": "^1.0.3",
+    "web3": "^4.3.0"
+  }
+}
