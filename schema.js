@@ -12,11 +12,14 @@ const {
 const web3 = new Web3('https://evm-rpc.planq.network');
 const fs = require('fs');
 // Replace with the actual Uniswap V3 factory contract address and ABI
-const uniswapV3FactoryContractAddress = '0xD058D9636F47697B3a3cd1Cb52d4b29Ca910373C';
+const uniswapV3FactoryContractAddress = '0x37e59adF08C3b4C0B744Be41E26120DB9953d30c';
 var jsonFile = "abis/factory.json";
 var PoolFile = "abis/pools.json";
 const uniswapV3FactoryAbi = JSON.parse(fs.readFileSync(jsonFile)); // Replace with your contract ABI
-const uniswapV3FactoryContract = new web3.eth.Contract(uniswapV3FactoryAbi, uniswapV3FactoryContractAddress);
+const uniswapV3FactoryContract = new web3.eth.Contract(uniswapV3FactoryAbi, uniswapV3FactoryContractAddress, {
+    from: '0x1234567890123456789012345678901234567891', // default from address
+    gasPrice: '20000000000' // default gas price in wei, 20 gwei in this case
+});
 
 // Replace with the actual Uniswap V3 pool contract ABI
 const uniswapV3PoolAbi = JSON.parse(fs.readFileSync(PoolFile)); // Replace with your pool contract ABI
