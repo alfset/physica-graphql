@@ -51,7 +51,7 @@ const PoolType = new GraphQLObjectType({
 const RootQuery = new GraphQLObjectType({
     name: 'RootQueryType',
     fields: {
-        uniswapV3FactoryOwner: {
+        PhysicaFactoryowner: {
             type: GraphQLString,
             async resolve(parent, args) {
                 try {
