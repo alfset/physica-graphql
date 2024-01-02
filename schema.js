@@ -11,6 +11,9 @@ const {
 } = require('web3');
 const web3 = new Web3('https://evm-rpc.planq.network');
 const fs = require('fs');
+const {
+    cloneElement
+} = require('react');
 // Replace with the actual Uniswap V3 factory contract address and ABI
 const uniswapV3FactoryContractAddress = '0x37e59adF08C3b4C0B744Be41E26120DB9953d30c';
 var jsonFile = "abis/factory.json";
@@ -67,8 +70,8 @@ const RootQuery = new GraphQLObjectType({
             type: new GraphQLList(PoolType),
             async resolve(parent, args) {
                 try {
-                    const poolAddresses = await uniswapV3FactoryContract.methods.getAllPools().call();
-
+                    const poolAddresses = await uniswapV3FactoryContract.methods.getPool().call();
+                    console.log(poolAddresses)
                     const poolsData = await Promise.all(poolAddresses.map(async (poolAddress) => {
                         const poolContract = new web3.eth.Contract(uniswapV3PoolAbi, poolAddress);
 
